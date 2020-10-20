@@ -1,2 +1,7 @@
-# gsc_cli_scripts
-CLI cripts for GSC/TS internal usage
+# TS CLI Scripts
+CLI cripts for TS internal usage
+
+At the moment following is present:
+
+* **getHspStatCacLink.py**  
+
