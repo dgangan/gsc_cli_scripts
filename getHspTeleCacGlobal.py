@@ -75,7 +75,7 @@ class ParsHelper():
 
     @staticmethod
     def get_domain():
-        possible_cfg_files = ["ifcfg-bond0.17", "ifcfg-br17"]
+        possible_cfg_files = ["ifcfg-bond0.17", "ifcfg-br17", "ifcfg-eth0"]
         for cfg_file in possible_cfg_files:
             possible_cfg_path = "/etc/sysconfig/network-scripts/"+cfg_file
             if os.path.isfile(possible_cfg_path):
