@@ -98,7 +98,7 @@ class ParsingMap():
 
     @staticmethod
     def hsp_stat_cac_link():
-        pmap = {}
+        parsingMap = {}
         types = ['new','modify','change_to_rob','change_to_eff']
 
         pars_dict = {'new':r'\W*Number.*new.*-\W\b@\b\W*(\d*)',
@@ -110,8 +110,8 @@ class ParsingMap():
 
         for tip in types:
                 for filed in fields:
-                        pmap[tip+'_'+filed] = re.compile(pars_dict[tip].replace('@',filed))
-        return pmap
+                        parsingMap[tip+'_'+filed] = re.compile(pars_dict[tip].replace('@',filed))
+        return parsingMap
 
     @staticmethod
     def hsp_tele_cac_global():
