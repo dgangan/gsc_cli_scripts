@@ -153,7 +153,6 @@ def main():
 
     #SCRIPT INITIAL PARAMETERS
     DPS = ParsHelper.get_elemets_ip()["DPS"]   # or specify manually ex: DPS = '172.17.14.1'
-    #HSP = ParsHelper.get_elemets_ip()["HSP"]   # or specify manually ex: DPS = '172.17.12.1'
     FILENAME = 'test.csv'
     SPECIAL_OPT = False
     DATETIME = time.strftime('%Y-%m-%d %H:%M:%S',time.gmtime())
@@ -175,7 +174,7 @@ def main():
     dps_telnet.send_command('bb links')
     bb_links = dps_telnet.read_output()
     vsat_ids = CliParser.parse_bb_links(bb_links)
-    print ('Got '+str(len(vsat_ids))+' VSATs\n')
+    print ('Got '+str(len(vsat_ids))+' VSATs')
 
     dps_telnet.send_command('sym set buf_vsat_owners_in_progress 0 4')
     time.sleep(2)
@@ -187,12 +186,6 @@ def main():
         pars_worker.aggregate_csv(raw_output, datetime = DATETIME)
     print("Writing to file")
     pars_worker.write_csv_file(FILENAME)
-
-    
-    if SPECIAL_OPT:
-        print("\nClearing HSP statistic")
-        hsp_telnet.send_command('stat cac global reset', by_symbol=True)
-        print("HSP statistic cleared\n")
 
 
 if __name__ == "__main__":
